@@ -21,16 +21,16 @@ def getData(list):
 
     nav.get(url_base)
 
-    sleep(10)
+    sleep(120)
 
     html = nav.find_element(By.TAG_NAME, 'html')
     html.send_keys(Keys.END)
 
-    sleep(5)
+    sleep(10)
 
     html.send_keys(Keys.END)
 
-    sleep(2)
+    sleep(5)
 
     games = nav.find_elements(
         By.CSS_SELECTOR, '.sp-o-market__title > a')
