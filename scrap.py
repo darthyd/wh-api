@@ -52,4 +52,6 @@ def getData():
 
     nav.quit()
 
+    print(my_list)
+
     return my_list
