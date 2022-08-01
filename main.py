@@ -1,8 +1,7 @@
 import json
 import os
 from flask import Flask, request
-from scrap import gamelist
-from scrap2 import getData
+from scrap import getData
 app = Flask(__name__)
 
 
@@ -11,13 +10,8 @@ def home():
     return 'Hello World!'
 
 
-@app.route('/api/req/games', methods=['GET'])
+@app.route('/api/games', methods=['GET'])
 def search_req():
-    return json.dumps(gamelist)
-
-
-@app.route('/api/sel/games')
-def search_sel():
     return json.dumps(getData())
 
 
