@@ -1,3 +1,4 @@
+import json
 import os
 from time import sleep
 from bs4 import BeautifulSoup
@@ -7,7 +8,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 
-def getData(list):
+def getData():
+    print('init scraping')
     url_base = 'https://sports.williamhill.com/betting/en-gb/football/matches/competition/today/match-betting'
 
     option = Options()
@@ -23,14 +25,20 @@ def getData(list):
 
     sleep(120)
 
+    print('init naving')
+
     html = nav.find_element(By.TAG_NAME, 'html')
     html.send_keys(Keys.END)
 
     sleep(10)
 
+    print('init parsing')
+
     html.send_keys(Keys.END)
 
     sleep(5)
+
+    list = []
 
     games = nav.find_elements(
         By.CSS_SELECTOR, '.sp-o-market__title > a')
@@ -52,4 +60,8 @@ def getData(list):
 
     print(list)
 
-    return list
+    with open('public/app.json', 'w') as f:
+        json.dump(list, f)
+
+
+getData()
