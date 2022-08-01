@@ -13,6 +13,7 @@ def getData(list):
     option = Options()
     option.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
     option.add_argument('--headless')
+    # option.add_argument('window-size=1920x1080')
     option.add_argument("--disable-dev-shm-usage")
     option.add_argument("--no-sandbox")
     nav = webdriver.Chrome(
