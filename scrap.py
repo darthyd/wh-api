@@ -7,9 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 
-def getData():
-    my_list = []
-
+def getData(list):
     url_base = 'https://sports.williamhill.com/betting/en-gb/football/matches/competition/today/match-betting'
 
     option = Options()
@@ -23,16 +21,16 @@ def getData():
 
     nav.get(url_base)
 
-    sleep(120)
+    sleep(10)
 
     html = nav.find_element(By.TAG_NAME, 'html')
     html.send_keys(Keys.END)
 
-    sleep(20)
+    sleep(5)
 
     html.send_keys(Keys.END)
 
-    sleep(20)
+    sleep(2)
 
     games = nav.find_elements(
         By.CSS_SELECTOR, '.sp-o-market__title > a')
@@ -47,11 +45,11 @@ def getData():
         away = game.split(' v ')[1]
         id = link.split('OB_EV')[1].split('/')[0]
 
-        my_list.append({'game': game, 'home': home,
-                       'away': away, 'id': id, 'link': link})
+        list.append({'game': game, 'home': home,
+                     'away': away, 'id': id, 'link': link})
 
     nav.quit()
 
-    print(my_list)
+    print(list)
 
-    return my_list
+    return list
