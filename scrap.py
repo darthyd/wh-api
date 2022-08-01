@@ -60,7 +60,7 @@ def getData():
 
     print(list)
 
-    with open('public/app.json', 'w') as f:
+    with open('static/app.json', 'w') as f:
         json.dump(list, f)
 
 
