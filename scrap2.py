@@ -12,8 +12,6 @@ def getData():
 
     url_base = 'https://sports.williamhill.com/betting/en-gb/football/matches/competition/today/match-betting'
 
-    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
     option = Options()
     option.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
     option.add_argument('--headless')
