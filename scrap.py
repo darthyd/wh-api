@@ -19,7 +19,7 @@ def getData():
     option.add_argument("--disable-dev-shm-usage")
     option.add_argument("--no-sandbox")
     nav = webdriver.Chrome(
-        executable_path="driver/chromedriver", options=option)
+        executable_path=os.environ.get('CHROMEDRIVER_PATH'), options=option)
 
     nav.get(url_base)
 
